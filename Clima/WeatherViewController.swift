@@ -28,21 +28,19 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     //Declare instance variables.
     let locationManager = CLLocationManager()
     let weatherDataModel = WeatherDataModel()
- 
+    
     
     
     //IBOutlets
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
-
-
     @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-       
+        
+        
         //Set up the location manager.
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -50,7 +48,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         locationManager.startUpdatingLocation()
         
     }
-       
+    
     
     
     
@@ -94,119 +92,108 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     
     func updateWeatherData(json : JSON) {
-    
-            let tempResult = json["main"]["temp"].doubleValue
-    
+        
+        if let tempResult = json["main"]["temp"].double {
+            
             weatherDataModel.temperature = Int(tempResult - 273.15) + 32
-    
+            
             weatherDataModel.city = json["name"].stringValue
-    
+            
             weatherDataModel.condition = json["weather"][0]["id"].intValue
-    
+            
             weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
-        
+            
             updateUIWithWeatherData()
-    }
-         
-    
-//            }
-//                else {
-//
-//                cityLabel.text = "Weather Unavailable"
-//
-//        }
-
-    
-
-    
-    //MARK: - UI Updates
-    /***************************************************************/
-    
-    
-    //updateUIWithWeatherData method
-    
-    func updateUIWithWeatherData() {
-        
-        cityLabel.text = weatherDataModel.city
-        temperatureLabel.text = "\(weatherDataModel.temperature)"
-        weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
+            
+            
+        } else {
+            
+            cityLabel.text = "Weather Unavailable"
+            
+        }
         
     }
-    
-    
-    
-    
-    //MARK: - Location Manager Delegate Methods
-    /***************************************************************/
-
-    
-    //didUpdateLocations method
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[locations.count - 1]
-        if location.horizontalAccuracy > 0 {
+        
+        
+        //MARK: - UI Updates
+        /***************************************************************/
+        
+        
+        //updateUIWithWeatherData method
+        
+        func updateUIWithWeatherData() {
             
-            self.locationManager.stopUpdatingLocation()
+            cityLabel.text = weatherDataModel.city
+            temperatureLabel.text = "\(weatherDataModel.temperature)°"
+            weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
             
-            print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)")
-            
-            let latitude = String(location.coordinate.latitude)
-            let longitude = String(location.coordinate.longitude)
-            
-            let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID]
+        }
+        
+        
+        
+        
+        //MARK: - Location Manager Delegate Methods
+        /***************************************************************/
+        
+        
+        //didUpdateLocations method
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            let location = locations[locations.count - 1]
+            if location.horizontalAccuracy > 0 {
+                
+                self.locationManager.stopUpdatingLocation()
+                
+                print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)")
+                
+                let latitude = String(location.coordinate.latitude)
+                let longitude = String(location.coordinate.longitude)
+                
+                let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID]
+                
+                getWeatherData(url: WEATHER_URL, parameters: params)
+            }
+        }
+        
+        
+        //didFailWithError method
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+            print(error)
+            cityLabel.text = "Location Unavailable"
+        }
+        
+        
+        
+        
+        //MARK: - Change City Delegate methods
+        /***************************************************************/
+        
+        
+        //userEnteredANewCityName Delegate method
+        
+        func userEnteredANewCityName(city: String) {
+            let params: [String : String] = ["q": city, "appid": APP_ID]
             
             getWeatherData(url: WEATHER_URL, parameters: params)
         }
-    }
-    
-    
-    //didFailWithError method
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-        cityLabel.text = "Location Unavailable"
-    }
-    
-    
-
-    
-    //MARK: - Change City Delegate methods
-    /***************************************************************/
-    
-    
-    //userEnteredANewCityName Delegate method
-    
-    
-    func userEnteredANewCityName(city: String) {
         
-        let params : [String : String] = ["q" : city, "appid" : APP_ID]
         
-        getWeatherData(url: WEATHER_URL, parameters: params)
         
-    }
-
-    
-    //PrepareForSegue Method
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //PrepareForSegue Method
         
-        if segue.identifier == "changeCityName" {
+        
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
-            let destinationVC = segue.destination as! ChangeCityViewController
-            
-            
-            destinationVC.delegate = self
+            if segue.identifier == "changeCityName" {
+                
+                let destinationVC = segue.destination as! ChangeCityViewController
+                
+                
+                destinationVC.delegate = self
+                
+            }
             
         }
         
-    }
     
-    
+
 }
-
-
-
-
-
-
-
-
