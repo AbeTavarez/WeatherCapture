@@ -36,6 +36,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var weatherInfoLabel: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,7 +119,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         //MARK: - UI Updates
         /***************************************************************/
         
-        
+    
         //updateUIWithWeatherData method
         
         func updateUIWithWeatherData() {
