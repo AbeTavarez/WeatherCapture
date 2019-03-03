@@ -14,6 +14,7 @@ import SwiftyJSON
 class WeatherViewController: UIViewController, CLLocationManagerDelegate, ChangeCityDelegate {
     
     @IBOutlet weak var faren: UISwitch!
+    
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "2de96d0439a44790decb0c02943dea02"
@@ -25,9 +26,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         }
     }
     
-    //Declare instance variables.
+    //Declare instance variables
     let locationManager = CLLocationManager()
     let weatherDataModel = WeatherDataModel()
+    let weatherDataInfoModel = WeatherDataInfoModel()
     
     
     
@@ -36,13 +38,13 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var weatherInfoLabel: UITextView!
+    @IBOutlet weak var weatherInfoTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        //Set up the location manager.
+        //Location manager setup
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
@@ -114,6 +116,32 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         }
         
     }
+    
+    //get temp description for weather info label(TEXTVIEW)
+    
+    func updateWeatherInfoData(json: JSON) {
+        
+        if let tempInfo = json["main"]["temp"].double {
+            
+            weatherDataInfoModel.temperature = Int(tempInfo - 273.15) + 32
+            
+            weatherDataInfoModel.description = json["descrption"].stringValue
+            
+            weatherDataInfoModel.humidity = json["humidity"].intValue
+            
+            weatherDataInfoModel.visibility = json["visibility"].intValue
+            
+            weatherDataInfoModel.pressure = json["pressure"].intValue
+            
+            updateUIWithWeatherDataInfo()
+            
+            print("Succes got weather description")
+            
+        } else {
+            weatherInfoTextView.text = "Information Unavailable, check connection"
+        }
+        
+    }
         
         
         //MARK: - UI Updates
@@ -129,6 +157,11 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
             
         }
+    // weatherInfoLabel is a TEXTVIEW!
+    func updateUIWithWeatherDataInfo() {
+        weatherInfoTextView.text = weatherDataInfoModel.description
+        
+    }
         
         
         
@@ -152,6 +185,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
                 let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID]
                 
                 getWeatherData(url: WEATHER_URL, parameters: params)
+                
+                
             }
         }
         

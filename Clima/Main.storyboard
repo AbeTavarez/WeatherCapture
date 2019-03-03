@@ -117,7 +117,7 @@
                         <outlet property="faren" destination="pm1-Xt-66f" id="fOg-pu-ONd"/>
                         <outlet property="temperatureLabel" destination="AT7-It-Fyf" id="aNl-QI-DaP"/>
                         <outlet property="weatherIcon" destination="C11-fU-d6q" id="AG2-gZ-vGX"/>
-                        <outlet property="weatherInfoLabel" destination="4tM-FR-uu4" id="CBQ-tQ-Yf3"/>
+                        <outlet property="weatherInfoTextView" destination="4tM-FR-uu4" id="CBQ-tQ-Yf3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
