@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  WeatherApp
 //
-//  Created by Angela Yu on 23/08/2015.
-//  Copyright (c) 2015 London App Brewery. All rights reserved.
+//
+//
 //
 
 import UIKit
@@ -19,26 +19,25 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "2de96d0439a44790decb0c02943dea02"
     
-    @IBAction func `switch`(_ sender: UISwitch) {
-        
-        if sender.isOn {
-            
-        }
-    }
+   
     
     //Declare instance variables
     let locationManager = CLLocationManager()
     let weatherDataModel = WeatherDataModel()
     let weatherDataInfoModel = WeatherDataInfoModel()
+    let photoWeatherTipsModel = PhotoWeatherTips()
     
-    
+  //weatherInfoTextField
     
     //IBOutlets
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var weatherInfoTextView: UITextView!
+    @IBOutlet weak var weatherInfoTextField: UILabel!
+    @IBOutlet weak var weatherDetailLabel: UILabel!
+    @IBOutlet weak var weatherTipsLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +73,11 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
                 print(weatherJSON)
                 
                 self.updateWeatherData(json: weatherJSON)
+                
+                ///////////////////here
+                self.updateWeatherInfoData(json: weatherJSON)
+                print("got weather details")
+                //////
                 
             }
             else {
@@ -125,7 +129,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             
             weatherDataInfoModel.temperature = Int(tempInfo - 273.15) + 32
             
-            weatherDataInfoModel.description = json["descrption"].stringValue
+            weatherDataInfoModel.description = json["weather"][0]["description"].stringValue
+            
+            weatherDataInfoModel.mainDescription = json["weather"][0]["main"].stringValue
             
             weatherDataInfoModel.humidity = json["humidity"].intValue
             
@@ -133,12 +139,14 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             
             weatherDataInfoModel.pressure = json["pressure"].intValue
             
-            updateUIWithWeatherDataInfo()
             
-            print("Succes got weather description")
+            
+            updateUIWithWeatherDataInfo()
+            updateUIWithWeatherDataDetails()
+            
             
         } else {
-            weatherInfoTextView.text = "Information Unavailable, check connection"
+            weatherInfoTextField.text = "Information Unavailable, check connection"
         }
         
     }
@@ -157,9 +165,20 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
             
         }
-    // weatherInfoLabel is a TEXTVIEW!
+    
+    
+    // weatherInfoTextField
     func updateUIWithWeatherDataInfo() {
-        weatherInfoTextView.text = weatherDataInfoModel.description
+        weatherInfoTextField.text = weatherDataInfoModel.mainDescription
+        
+    }
+    
+    //weather details Label
+    func updateUIWithWeatherDataDetails() {
+        weatherDetailLabel.text = "\(weatherDataInfoModel.description)"
+        photoWeatherTipsModel.photoTip = photoWeatherTipsModel.getPhotoTip(condition: weatherDataModel.condition)
+        weatherTipsLabel.text = "\(photoWeatherTipsModel.photoTip)"
+        
         
     }
         
@@ -186,7 +205,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
                 
                 getWeatherData(url: WEATHER_URL, parameters: params)
                 
-                
+              
             }
         }
         

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		029016ED2232F16900C60E1B /* PhotoWeatherTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029016EC2232F16900C60E1B /* PhotoWeatherTips.swift */; };
 		029BAB43222A3A0F00041315 /* redClouds.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 029BAB42222A3A0F00041315 /* redClouds.jpeg */; };
 		029BAB45222A3A3800041315 /* cameraWorldMap.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 029BAB44222A3A3800041315 /* cameraWorldMap.jpeg */; };
 		029BAB71222C4C3500041315 /* WeatherDataInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029BAB70222C4C3500041315 /* WeatherDataInfoModel.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		029016EC2232F16900C60E1B /* PhotoWeatherTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWeatherTips.swift; sourceTree = "<group>"; };
 		029BAB42222A3A0F00041315 /* redClouds.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redClouds.jpeg; sourceTree = "<group>"; };
 		029BAB44222A3A3800041315 /* cameraWorldMap.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cameraWorldMap.jpeg; sourceTree = "<group>"; };
 		029BAB70222C4C3500041315 /* WeatherDataInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataInfoModel.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				63E28AF01B99C35700FBF6E0 /* WeatherDataModel.swift */,
+				029016EC2232F16900C60E1B /* PhotoWeatherTips.swift */,
 				029BAB70222C4C3500041315 /* WeatherDataInfoModel.swift */,
 			);
 			name = Model;
@@ -282,6 +285,7 @@
 				029BAB71222C4C3500041315 /* WeatherDataInfoModel.swift in Sources */,
 				63E28AF11B99C35700FBF6E0 /* WeatherDataModel.swift in Sources */,
 				63E28AF91B99C36100FBF6E0 /* WeatherViewController.swift in Sources */,
+				029016ED2232F16900C60E1B /* PhotoWeatherTips.swift in Sources */,
 				63E28AD11B99C32400FBF6E0 /* AppDelegate.swift in Sources */,
 				63E28AF61B99C36100FBF6E0 /* ChangeCityViewController.swift in Sources */,
 			);
