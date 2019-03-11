@@ -22,6 +22,7 @@ class ChangeCityViewController: UIViewController {
     //IBOutlets to the text field:
     @IBOutlet weak var changeCityTextField: UITextField!
 
+    @IBOutlet weak var myLocationWeatherButoon: UIButton!
     
     //This is the IBAction that gets called when the user taps on the "Get Weather" button:
     
@@ -35,6 +36,15 @@ class ChangeCityViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         
     }
+    
+    
+    
+    @IBAction func myLocationWeatherPressed(_ sender: Any) {
+        
+        
+        
+    }
+    
     
     
 

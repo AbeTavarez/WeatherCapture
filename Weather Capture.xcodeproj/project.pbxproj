@@ -29,7 +29,7 @@
 		029BAB44222A3A3800041315 /* cameraWorldMap.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cameraWorldMap.jpeg; sourceTree = "<group>"; };
 		029BAB70222C4C3500041315 /* WeatherDataInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataInfoModel.swift; sourceTree = "<group>"; };
 		63CF3E1541F39AA8B5EEE5BD /* Pods_Clima.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clima.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		63E28ACB1B99C32400FBF6E0 /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63E28ACB1B99C32400FBF6E0 /* Weather Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Capture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E28ACF1B99C32400FBF6E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63E28AD01B99C32400FBF6E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63E28AF01B99C35700FBF6E0 /* WeatherDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		63E28ACC1B99C32400FBF6E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63E28ACB1B99C32400FBF6E0 /* Clima.app */,
+				63E28ACB1B99C32400FBF6E0 /* Weather Capture.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,9 +147,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		63E28ACA1B99C32400FBF6E0 /* Clima */ = {
+		63E28ACA1B99C32400FBF6E0 /* Weather Capture */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63E28AEA1B99C32400FBF6E0 /* Build configuration list for PBXNativeTarget "Clima" */;
+			buildConfigurationList = 63E28AEA1B99C32400FBF6E0 /* Build configuration list for PBXNativeTarget "Weather Capture" */;
 			buildPhases = (
 				E4320269D1839B05581CDD2F /* [CP] Check Pods Manifest.lock */,
 				63E28AC71B99C32400FBF6E0 /* Sources */,
@@ -162,9 +162,9 @@
 			);
 			dependencies = (
 			);
-			name = Clima;
+			name = "Weather Capture";
 			productName = Clima;
-			productReference = 63E28ACB1B99C32400FBF6E0 /* Clima.app */;
+			productReference = 63E28ACB1B99C32400FBF6E0 /* Weather Capture.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -184,7 +184,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 63E28AC61B99C32400FBF6E0 /* Build configuration list for PBXProject "Clima" */;
+			buildConfigurationList = 63E28AC61B99C32400FBF6E0 /* Build configuration list for PBXProject "Weather Capture" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -197,7 +197,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				63E28ACA1B99C32400FBF6E0 /* Clima */,
+				63E28ACA1B99C32400FBF6E0 /* Weather Capture */,
 			);
 		};
 /* End PBXProject section */
@@ -432,7 +432,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63E28AC61B99C32400FBF6E0 /* Build configuration list for PBXProject "Clima" */ = {
+		63E28AC61B99C32400FBF6E0 /* Build configuration list for PBXProject "Weather Capture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63E28AE81B99C32400FBF6E0 /* Debug */,
@@ -441,7 +441,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63E28AEA1B99C32400FBF6E0 /* Build configuration list for PBXNativeTarget "Clima" */ = {
+		63E28AEA1B99C32400FBF6E0 /* Build configuration list for PBXNativeTarget "Weather Capture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63E28AEB1B99C32400FBF6E0 /* Debug */,
