@@ -2,16 +2,17 @@
 
 platform :ios, '9.0'
 
-target 'Clima' do
+target 'Weather Capture' do
 
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Clima
+  # Pods for Weather Capture
 
     pod 'SwiftyJSON'
-    pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'xcode10'
     pod 'SVProgressHUD'
+    pod 'INTULocationManager'
+    pod 'Alamofire'
 
 end
 

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Clima.xcodeproj">
+      location = "self:/Users/efrentavarez/Desktop/Clima-iOS12/Weather Capture.xcodeproj">
    </FileRef>
 </Workspace>
