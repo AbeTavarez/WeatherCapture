@@ -23,19 +23,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thomas-richter-19977-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="E0h-aX-oBb" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1114"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="th1-Kr-XgW" userLabel="Change City Button">
-                                <rect key="frame" x="344" y="20" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="p6a-Rh-5P9"/>
-                                    <constraint firstAttribute="height" constant="50" id="qRJ-AK-fNV"/>
-                                </constraints>
-                                <state key="normal" image="marker-30">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="P1Y-dL-zMM" kind="presentation" identifier="changeCityName" id="miH-QC-hxD"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AT7-It-Fyf" userLabel="Temperature Label">
                                 <rect key="frame" x="262" y="78" width="152" height="118"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="100"/>
@@ -64,9 +51,10 @@
                                         <rect key="frame" x="-9" y="0.0" width="423" height="1114"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amh-2C-dth">
-                                                <rect key="frame" x="16" y="120" width="380" height="310"/>
+                                                <rect key="frame" x="16" y="120" width="399" height="310"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">When shooting in the rain I always wear oversize protective clothing and have my camera inside my jacket, nice and dry and easily accessible and ready to shoot when the right opportunity arises. </string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -83,20 +71,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set your camera to." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-rI-wR2">
-                                                <rect key="frame" x="16" y="480" width="380" height="278"/>
+                                                <rect key="frame" x="16" y="480" width="399" height="278"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.54272910276073616" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="7Ne-Qa-Tat" firstAttribute="top" secondItem="XEi-zS-gvu" secondAttribute="top" constant="92" id="4B2-E5-Wwh"/>
                                             <constraint firstItem="amh-2C-dth" firstAttribute="top" secondItem="7Ne-Qa-Tat" secondAttribute="bottom" constant="8" id="CuR-ok-trC"/>
                                             <constraint firstItem="amh-2C-dth" firstAttribute="leading" secondItem="XEi-zS-gvu" secondAttribute="leading" constant="16" id="Ih2-wM-Om6"/>
                                             <constraint firstItem="7Ne-Qa-Tat" firstAttribute="leading" secondItem="XEi-zS-gvu" secondAttribute="leading" constant="16" id="Z2K-qu-RoJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="amh-2C-dth" secondAttribute="trailing" constant="27" id="b4Z-St-Jjh"/>
+                                            <constraint firstAttribute="trailing" secondItem="amh-2C-dth" secondAttribute="trailing" constant="8" id="b4Z-St-Jjh"/>
                                             <constraint firstItem="Gpy-yk-JXm" firstAttribute="leading" secondItem="XEi-zS-gvu" secondAttribute="leading" constant="16" id="lGK-dJ-yQz"/>
                                             <constraint firstItem="Gpy-yk-JXm" firstAttribute="top" secondItem="amh-2C-dth" secondAttribute="bottom" constant="21" id="wpq-px-opV"/>
                                         </constraints>
@@ -179,6 +167,19 @@
                                     <constraint firstItem="xo2-o5-zms" firstAttribute="top" secondItem="P41-e4-hoj" secondAttribute="top" constant="6" id="xZK-fs-JdA"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="th1-Kr-XgW" userLabel="Change City Button">
+                                <rect key="frame" x="353" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="p6a-Rh-5P9"/>
+                                    <constraint firstAttribute="height" constant="50" id="qRJ-AK-fNV"/>
+                                </constraints>
+                                <state key="normal" image="marker-30">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="P1Y-dL-zMM" kind="presentation" identifier="changeCityName" id="miH-QC-hxD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -197,7 +198,7 @@
                             <constraint firstItem="AT7-It-Fyf" firstAttribute="leading" secondItem="C11-fU-d6q" secondAttribute="trailing" constant="63" id="KbZ-vu-Dym"/>
                             <constraint firstItem="P41-e4-hoj" firstAttribute="top" secondItem="C11-fU-d6q" secondAttribute="bottom" constant="5" id="LAe-Mx-Gf0"/>
                             <constraint firstItem="P41-e4-hoj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="NjN-RO-Dbh"/>
-                            <constraint firstItem="th1-Kr-XgW" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="OCL-NQ-UMw"/>
+                            <constraint firstItem="th1-Kr-XgW" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" constant="9" id="OCL-NQ-UMw"/>
                             <constraint firstItem="P41-e4-hoj" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Rk1-zr-nCh"/>
                             <constraint firstItem="P41-e4-hoj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="TJO-LT-X1p"/>
                             <constraint firstItem="C11-fU-d6q" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="ZTE-vL-4z1"/>
@@ -213,7 +214,7 @@
                             <constraint firstAttribute="bottom" secondItem="mrx-dd-Czu" secondAttribute="bottom" constant="-318" id="ry7-0L-MbF"/>
                             <constraint firstItem="P41-e4-hoj" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="tip-az-ZSy"/>
                             <constraint firstItem="P41-e4-hoj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="wAp-Jb-Uju"/>
-                            <constraint firstItem="th1-Kr-XgW" firstAttribute="leading" secondItem="Von-sT-DMo" secondAttribute="trailing" constant="40" id="wi9-1M-axR"/>
+                            <constraint firstItem="th1-Kr-XgW" firstAttribute="leading" secondItem="Von-sT-DMo" secondAttribute="trailing" constant="49" id="wi9-1M-axR"/>
                             <constraint firstItem="Von-sT-DMo" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="xH1-8m-sby"/>
                         </constraints>
                     </view>
@@ -287,28 +288,29 @@
                                             <action selector="backButtonPressed:" destination="P1Y-dL-zMM" eventType="touchUpInside" id="Rbp-rZ-Byc"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rm-Kc-frf">
+                                        <rect key="frame" x="358" y="44" width="44" height="45"/>
+                                        <state key="normal" image="synchronize-filled-50"/>
+                                        <connections>
+                                            <action selector="useMyLocationButton:" destination="P1Y-dL-zMM" eventType="touchUpInside" id="h2m-Ro-Vuz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="FvW-e3-7QL" firstAttribute="top" secondItem="daC-2b-iRt" secondAttribute="top" constant="44" id="60e-Pu-XO0"/>
+                                    <constraint firstItem="2Rm-Kc-frf" firstAttribute="top" secondItem="daC-2b-iRt" secondAttribute="top" constant="44" id="L8F-oy-38E"/>
                                     <constraint firstAttribute="trailing" secondItem="PdY-a2-R5m" secondAttribute="trailing" constant="12" id="LFV-io-fTm"/>
                                     <constraint firstItem="FvW-e3-7QL" firstAttribute="leading" secondItem="daC-2b-iRt" secondAttribute="leading" constant="12" id="Mbn-MV-F3S"/>
                                     <constraint firstAttribute="centerX" secondItem="0F0-ob-gbM" secondAttribute="centerX" id="Rg7-hk-cLI"/>
                                     <constraint firstAttribute="trailing" secondItem="0F0-ob-gbM" secondAttribute="trailing" constant="93" id="RlB-UN-awk"/>
                                     <constraint firstItem="0F0-ob-gbM" firstAttribute="leading" secondItem="daC-2b-iRt" secondAttribute="leading" constant="93" id="Sm2-m8-6CC"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Rm-Kc-frf" secondAttribute="trailing" constant="12" id="c0z-sv-JJd"/>
                                     <constraint firstAttribute="height" constant="221" id="fOA-8p-aei"/>
                                     <constraint firstItem="PdY-a2-R5m" firstAttribute="top" secondItem="0F0-ob-gbM" secondAttribute="bottom" constant="20" id="gAb-ag-tUI"/>
                                     <constraint firstItem="PdY-a2-R5m" firstAttribute="leading" secondItem="daC-2b-iRt" secondAttribute="leading" constant="12" id="lBD-Po-5vn"/>
                                     <constraint firstAttribute="bottom" secondItem="PdY-a2-R5m" secondAttribute="bottom" id="rcZ-4T-yCp"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rm-Kc-frf">
-                                <rect key="frame" x="109" y="263" width="202" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="useMyLocationButton:" destination="P1Y-dL-zMM" eventType="touchUpInside" id="h2m-Ro-Vuz"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -352,6 +354,7 @@
         <image name="goldenBridge" width="2568" height="3826"/>
         <image name="left" width="32" height="32"/>
         <image name="marker-30" width="22.5" height="22.5"/>
+        <image name="synchronize-filled-50" width="37.5" height="37.5"/>
         <image name="thomas-richter-19977-unsplash" width="2286" height="3500"/>
     </resources>
 </document>
