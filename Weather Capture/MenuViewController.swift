@@ -23,11 +23,10 @@ class MenuViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell1 = tableView.dequeueReusableCell(withIdentifier: "aboutMenuCell", for: indexPath)
-      
+        let cellAbout = tableView.dequeueReusableCell(withIdentifier: "aboutMenuCell", for: indexPath)
         
         //Cell #1 Fahrenheit and Celsius
-        if let label = cell1.viewWithTag(1) as? UILabel {
+        if let label = cellAbout.viewWithTag(1) as? UILabel {
 //            if indexPath.row == 0 {
                 label.text = "About"
 //            } else if indexPath.row  == 1 {
@@ -36,7 +35,9 @@ class MenuViewController: UITableViewController {
 //                label.text = "Error"
 //            }
         }
-         return cell1
+      
+        return cellAbout
+        
     }
     
  
