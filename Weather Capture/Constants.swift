@@ -12,4 +12,7 @@ import UIKit
 
 struct Constants {
     static let useFahreneitKey = "UseFahrenheit"
+    
+    
+    
 }

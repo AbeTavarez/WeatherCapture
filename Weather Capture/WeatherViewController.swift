@@ -64,17 +64,14 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        
-        
-        
-        
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
     }
     
-    
-    
-    
-    
+    @objc func defaultsChanged() {
+        
+        userLocation()
+        
+    }
     
     //MARK: - Networking
     /***************************************************************/
@@ -113,8 +110,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     /***************************************************************/
     
     /////////////////////////////////////////////////
-    
-   
     //////////////////////////////////////////////////
     
     
@@ -126,7 +121,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     func updateWeatherData(json : JSON) {
         
         if let tempResult = json["main"]["temp"].double {
-            
             
             weatherDataModel.temperature = useFahrenheit ? Int(((tempResult - 273.15) * 1.8)  + 32) : Int(tempResult - 273.15)
             

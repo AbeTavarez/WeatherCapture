@@ -14,7 +14,8 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
-  
+    @IBOutlet weak var tempSwitch: UISwitch!
+    
     
     
     
@@ -28,16 +29,18 @@ class SettingsTableViewController: UITableViewController {
         print(UserDefaults.standard.bool(forKey: Constants.useFahreneitKey))
         
         
-//        UserDefaults.standard.didChangeValue(forKey: <#T##String#>)
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tempSwitch.isOn = UserDefaults.standard.bool(forKey: "UseFahrenheit")
+        
+        
+        
 //        tempswitch.isOn = UserDefaults.standard.bool(forKey: Constants.useFahreneitKey)
       
     }
-    
     
     
     //done button

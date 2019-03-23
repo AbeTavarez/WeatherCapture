@@ -297,6 +297,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tempSwitch" destination="Cma-Az-P1g" id="YZU-Mt-XOg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvS-kc-UIj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
