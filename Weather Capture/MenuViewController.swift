@@ -17,7 +17,7 @@ class MenuViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 1
         
     }
     
@@ -35,7 +35,6 @@ class MenuViewController: UITableViewController {
 //                label.text = "Error"
 //            }
         }
-      
         return cellAbout
         
     }

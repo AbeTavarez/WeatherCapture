@@ -21,6 +21,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "2de96d0439a44790decb0c02943dea02"
     
+    let fahrenheitValue = 32
+    var switchIsOn: Bool = true
+    
+    
    
     
     //Declare instance variables
@@ -28,6 +32,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     let weatherDataModel = WeatherDataModel()
     let weatherDataInfoModel = WeatherDataInfoModel()
     let photoWeatherTipsModel = PhotoWeatherTips()
+  
     
   //weatherInfoTextField
     
@@ -43,7 +48,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     @IBOutlet weak var sunsetTimeLabel: UILabel!
     @IBOutlet weak var menuButton: UIButton!
     
-    
+    var useFahrenheit: Bool {
+        return UserDefaults.standard.bool(forKey: Constants.useFahreneitKey)
+    }
     
     
     
@@ -56,6 +63,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        
+        
         
         
         
@@ -102,17 +112,23 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     //MARK: - JSON Parsing
     /***************************************************************/
     
+    /////////////////////////////////////////////////
     
+   
+    //////////////////////////////////////////////////
     
     
     //updateWeatherData method
+    
+    
     
     
     func updateWeatherData(json : JSON) {
         
         if let tempResult = json["main"]["temp"].double {
             
-            weatherDataModel.temperature = Int(tempResult - 273.15) + 32
+            
+            weatherDataModel.temperature = useFahrenheit ? Int(((tempResult - 273.15) * 1.8)  + 32) : Int(tempResult - 273.15)
             
             weatherDataModel.city = json["name"].stringValue
             
@@ -138,7 +154,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         
         if let tempInfo = json["main"]["temp"].double {
             
-            weatherDataInfoModel.temperature = Int(tempInfo - 273.15) + 32
+            weatherDataInfoModel.temperature = Int(tempInfo - 273.15 * 1.8)  + 32
             
             weatherDataInfoModel.description = json["weather"][0]["description"].stringValue.uppercased()
             
@@ -263,11 +279,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             getWeatherData(url: WEATHER_URL, parameters: params)
         }
         
-        
-        
+    
         //PrepareForSegue Method
-        
-        
+    
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
             if segue.identifier == "changeCityName" {
@@ -282,13 +296,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         }
     
     
-    
-    
     //get user current location button 
     func userLocation() {
         locationManager.startUpdatingLocation()
     }
     
-    
-
 }
