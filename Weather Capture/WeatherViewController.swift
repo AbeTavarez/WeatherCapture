@@ -41,6 +41,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     @IBOutlet weak var weatherTipsLabel: UILabel!
     @IBOutlet weak var sunriseTimeLabel: UILabel!
     @IBOutlet weak var sunsetTimeLabel: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
     
     
     
@@ -129,6 +130,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         }
         
     }
+    
     
     //get temp description for weather info label(TEXTVIEW)
     
@@ -278,6 +280,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             }
             
         }
+    
+    
+    
     
     //get user current location button 
     func userLocation() {
